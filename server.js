@@ -2,8 +2,8 @@ var http = require("http");
 var fs = require("fs");
 var path = require("path");
 var url = require("url");
-var mimeTypes = [/.js$/, /.css$/, /.jpg$/, /.jpeg/, /.png$/];
-var fileTypes = ["text/css", "text/js", "image/png", "image/jpg", "image/jpeg"];
+var port = process.env.PORT || 3000;
+
 function handling(req, res, link, file) {
         if (req.method == "GET") {
             var filename = path.join(__dirname, "pages/" + file);
@@ -77,4 +77,4 @@ var server = http.createServer(function (req, res) {
 });
 
 //console.log(handle.get("/", "home.html"))
-server.listen(3000);
+server.listen(port);
