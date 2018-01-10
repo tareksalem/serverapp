@@ -21,7 +21,6 @@ header{
 .navbar-default{
     background:none;
     border:none;
-
 }
 .navbar-default .navbar-nav>li>a{
     color:white;
@@ -80,4 +79,13 @@ header{
 .container-info .description{
     margin-top:150px;
     color:white;
+}
+
+/*media query*/
+
+@media (max-width: 767px) {
+    .navbar-collapse{
+        background-color:black;
+    }
+    
 }
