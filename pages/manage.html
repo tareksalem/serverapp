@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>choose server</title>
+    <meta
+            name='viewport'
+            content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'
+    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-flipped.css"/>
+    <link rel="stylesheet" href="/css/profile.css"/>
+    <link rel="stylesheet" href="/css/manage.css"/>
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
+</head>
+<body>
+    <!--navabr-->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">بوت بالعربي</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="#">الرئيسية</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="user-welcom">مرحبا: <span> اسم العميل</span></li>
+                <li class="dropdown">
+                    <div class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><div class="image-dropdown"><img src="./images/user-icon.jpg" /></div> <span class="caret"></span></div>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-user"></i> الصفحة الشخصية</a></li>
+                        <li><a href="#"><i class="fa fa-user"></i> الحساب</a></li>
+                        <li><a href="#"><i class="fa fa-sign-out"></i> تسجيل الخروج</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+    <!--container of all options-->
+    <div class="container container-page">
+        <div class="row">
+            
+            <!-- accordion of all options panel-->
+            <div class="container-body col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>عند دخول عضو جديد</h3>
+                        </div>
+                        <div class="panel-body">
+                            <!--form of new user-->
+                            <form method="post" id="enter-new-user">
+                                <span class="fa fa-times close-sidebar"></span>
+                                <div class="row">
+                                    <!--small side bar-->
+                                    <div class="container-sidebar col-lg-2 col-md-2 col-sm-4 col-xs-5">
+                                        <div class="sidebar">
+                                            <p class="sidebar-option" data-toggle=".on-and-off">
+                                                <span>التفعيل والتعطيل</span>
+                                            </p>
+                                            <p class="sidebar-option" data-toggle=".public-messages">
+                                                <span>رسائل العام</span>
+                                            </p>
+                                            <p class="sidebar-option" data-toggle=".private-messages">
+                                                <span>رسائل الخاص</span>
+                                            </p>
+                                            <p class="sidebar-option" data-toggle=".publ-images">
+                                                 <span>الصور</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!--container of enter new user options-->
+                                    <div class="container-enter-user-options col-lg-9 col-md-9 col-sm-7 col-xs-6">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>شات الترحيب</label>
+                                                    <select class="form-control">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-user-options on-and-off">
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>ارسال معرف الدخول</label>  
+                                                    <input type="checkbox" name="joinid">
+                                                    <span class="alert-alert">يتطلب صلاحية</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>ارسال ترحيب الخاص</label>  
+                                                    <input type="checkbox" name="welcinpm">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>ارسال ترحيب الصورة</label>  
+                                                    <input type="checkbox" name="welcpohto">
+                                                    <span class="alert-alert">يتطلب صلاحية</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>أرسال رساله الترحيب على الشات</label>  
+                                                    <input type="checkbox" name="welcactv">
+                                                    <span class="alert-alert">يتطلب صلاحية</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>أرسال رساله الترحيب قبل الصوره</label>  
+                                                    <input type="checkbox" name="welcactvb4">
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>أعطاء العضو لون عشوائي</label>  
+                                                    <input type="checkbox" name="autorolecolor">
+                                                    <span class="alert-alert">يتطلب صلاحية</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <label>أعطاء العضو رول</label>  
+                                                    <span class="alert-alert">يتطلب صلاحية</span>
+                                                    <select class="form-control" name="rolejoin">
+                                                        <option>خيار 1</option>
+                                                        <option>خيار 2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--container of public message-->
+                                        <div class="container-user-options public-messages">
+                                            <h4>رسائل الترحيب</h4>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="btn btn-primary btn-add btn-add-public-message">إضافة رسالة</div>
+                                            </div>
+                                            <div class="container-add-textarea col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="btn btn-danger btn-remove-textarea btn-remove-public-message">_</p>
+                                                    <label>رسالة ترحيب</label>
+                                                    <textarea class="form-control" name="msgwelc{{msg['id']}}"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--container of public private messages-->
+                                        <div class="container-user-options private-messages">
+                                            <h4>أضف رسالة خاص</h4>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="btn btn-primary btn-add btn-add-private-message">إضافة رسالة</div>
+                                            </div>
+                                            <div class="container-add-textarea col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <p class="btn btn-danger btn-remove-textarea btn-remove-private-message">_</p>
+                                                    <label>رسالة ترحيب</label>
+                                                    <textarea class="form-control" name="msgpm{{msg['id']}}"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-user-options publ-images">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>الصور</h4>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>الخلفية</h4>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>رابط صورة الخلفية</label>  
+                                                        <input type="text" class="form-control" name="background-image-link"> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>رابط صورة الخلفية</label>  
+                                                        <input type="text" class="form-control" name="background-image-link"> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>الصورة الرمزية</h4>
+
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>اتفعيل \ تعطيل </label>
+                                                        <input type="checkbox" data-enable=".enable-disable-img" class="enable-disable-btn" name="enable-disable-box">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <fieldset class="enable-disable-img" disabled>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات يسار</label>
+                                                                <input class="form-control" name="dimention-left" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات أعلى</label>
+                                                                <input class="form-control" name="dimention-up" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>النوع</label>
+                                                                <select class="form-control" name="image-type">
+                                                                    <option>دائرية</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>العرض</label>
+                                                                <input class="form-control" name="width" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>الطول</label>
+                                                                <input class="form-control" name="height" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>الاسم</h4>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>اتفعيل \ تعطيل </label>
+                                                        <input type="checkbox" class="enable-disable-btn" name="enable-disable-box2">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <fieldset class="enable-disable-name" disabled>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات يسار</label>
+                                                                <input class="form-control" name="dimention-left2" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات أعلى</label>
+                                                                <input class="form-control" name="dimention-up2" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون النص</label>
+                                                                <input type="color" name="text-color">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون ثاني</label>
+                                                                <input type="color" name="second-color">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>الحجم</label>
+                                                                <input class="form-control" type="text" name="size">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>حجم عرض الخط</label>
+                                                                <input class="form-control" type="text" name="font-width-size">
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>عدد أيام انشاء الحساب</h4>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>اتفعيل \ تعطيل </label>
+                                                        <input type="checkbox" class="enable-disable-btn" name="enable-disable-box3">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <fieldset class="enable-disable-name" disabled>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات يسار</label>
+                                                                <input class="form-control" name="dimention-left3" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات أعلى</label>
+                                                                <input class="form-control" name="dimention-up3" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون النص</label>
+                                                                <input type="color" name="text-color2">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون ثاني</label>
+                                                                <input type="color" name="second-color2">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>الحجم</label>
+                                                                <input class="form-control" type="text" name="size2">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>حجم عرض الخط</label>
+                                                                <input class="form-control" type="text" name="font-width-size2">
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>أسم الداعي</h4>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                                    <div class="form-group">
+                                                        <label>اتفعيل \ تعطيل </label>
+                                                        <input type="checkbox" class="enable-disable-btn" name="enable-disable-box3">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <fieldset class="enable-disable-name" disabled>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات يسار</label>
+                                                                <input class="form-control" name="dimention-left4" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>احداثيات أعلى</label>
+                                                                <input class="form-control" name="dimention-up4" type="text"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون النص</label>
+                                                                <input type="color" name="text-color3">
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>لون ثاني</label>
+                                                                <input type="color" name="second-color3">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>الحجم</label>
+                                                                <input class="form-control" type="text" name="size3">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <label>حجم عرض الخط</label>
+                                                                <input class="form-control" type="text" name="font-width-size3">
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="container-image-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <h4>المعاينة</h4>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <img class="image-test" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--container of colors system-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>نظام الألوان</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5  col-md-5 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>شات الألوان</label>
+                                                    <select name="channel" class="form-control">
+                                                        <option>على جميع الشاتات</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-3  col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل نظام الألوان</label>
+                                                    <input type="checkbox" name="systemcolor">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>أمر الألوان</label>
+                                                    <input class="form-control" type="text" name="cmdnamecolor">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>أسم علبة الألوان</label>
+                                                    <input class="form-control" type="text" name="cboxcolor">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>نوع أيقونات الألوان</label>
+                                                    <select class="form-control" type="text" name="colorstypeicon">
+                                                        <option>مربعة</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>خلفيات العلبه</label>
+                                                    <input class="form-control" type="text" name="cmdnamecolorbg">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>ملاحظة</label>
+                                                    <p class="alert-alert">يجب أن يكون رول بالعربي بوت فوق روت الألوان</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container of colors system-->
+                    <!--container of the active sound-->
+
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>المتواجدين صوت</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5  col-md-5 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>كتابه العدد بروم</label>
+                                                    <select name="channel" class="form-control">
+                                                        <option>channel name</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-3  col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل نظام المتواجدين صوت</label>
+                                                    <input type="checkbox" name="systemvoice">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>أسم الروم الصوتي</label>
+                                                    <input class="form-control" type="text" name="chnamevoice">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>طريقة الأستخدام</label>
+                                                    <p>
+                                                        [العدد] 
+                                                        يتم استبدالها بعدد المتواجدين
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>الصلاحيات المطلوبه</label>
+                                                    <p>
+                                                        [ *Manage Channel ] 
+                                                        [ *Connect ]
+                                                    </p>
+                                                </div>
+                                            </div>   
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end container of the active sound-->
+                    <!-- container of orderes-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>الأوامر</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5  col-md-5 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر الهوية</label>
+                                                    <select name="myidactv" class="form-control">
+                                                        <option>تفعيل هذه الخاصية</option>
+                                                    </select>
+                                                    <select name="myidch" class="form-control">
+                                                        <option>على جميع الشاتات</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-3  col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر الرابط</label>
+                                                    <input type="checkbox" name="linkcheck">
+                                                    <input type="text" class="form-control" name="cmdnamelink" placeholder="اسم الأمر">
+                                                    <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر أمسح</label>
+                                                    <input type="checkbox" name="clearcmd">
+                                                    <input class="form-control" type="text" name="cmdnameclear" placeholder = "أسم الأمر">
+                                                    <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر الأسكات</label>
+                                                    <input type="checkbox" name="mutecmd">
+                                                    <input class="form-control" type="text" name="cmdnamemute" placeholder = "أسم الأمر">
+
+                                                    <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر تكلم</label>
+                                                    <input type="checkbox" name="unmutecmd">
+                                                    <input class="form-control" type="text" name="cmdnameunmute" placeholder = "أسم الأمر">
+
+                                                    <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر الطرد</label>
+                                                    <input class="enable-disable-btn" type="checkbox" name="kickcmdactv">
+                                                    <h4 class="opened-options">الصلاحيات المخول لها</h4>
+                                                    <fieldset class="enable-disabled-inputs" disabled>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="kickcmd" multiple>
+                                                            <option>{{role.name}}</option>
+                                                        </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="text" name="cmdnamekick" placeholder = "أسم الأمر">
+
+                                                        </div>
+                                                        <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر الحظر لصلاحيه</label>
+                                                    <input class="enable-disable-btn" type="checkbox" name="bancmdactv">
+                                                    <h4 class="opened-options">الصلاحيات المخول لها</h4>
+                                                    <fieldset class="enable-disabled-inputs" disabled>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="bancmd" multiple>
+                                                            <option>{{role.name}}</option>
+                                                        </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input class="form-control" type="text" name="cmdnameban" placeholder = "أسم الأمر">
+
+                                                        </div>
+                                                        <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تفعيل أمر البرودكاست لصلاحيه</label>
+                                                    <input class="enable-disable-btn" type="checkbox" name="bccmdactv">
+                                                    <h4 class="opened-options">الصلاحيات المخول لها</h4>
+                                                    <fieldset class="enable-disabled-inputs" disabled>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="bccmd" multiple>
+                                                            <option>{{role.name}}</option>
+                                                        </select>
+                                                        </div>
+                                                        <p class="alert-alert">[ *Create Instant Invite ] يتطلب صلاحية</p>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container of orders-->
+                    <!--container of auto reply-->
+
+                    
+                    <!--end container of auto reply-->
+                </div>
+            </div>
+        <div>    
+    </div>
+        
+    </div>
+    <!--jquery-->
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/manage.js"></script>
+</body>
+</html>

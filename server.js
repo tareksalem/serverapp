@@ -64,9 +64,7 @@ function SampleJs() {
 
 var Handle = new SampleJs();
 
-Handle.get("/", function (req, res) {
-    res.render("pages", "home.html", "hello");
-});
-Handle.get("/profile", function (req, res) {
-    res.render("pages", "profile.html", "hello");
+
+Handle.get("/manage", function (req, res) {
+    res.render("pages", "manage.html", "hello");
 });

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tareksalem/serverapp/issues"
   },
-  "homepage": "https://github.com/tareksalem/serverapp#readme"
+  "homepage": "https://github.com/tareksalem/serverapp#readme",
+  "dependencies": {
+    "routes": "^2.1.0"
+  }
 }
