@@ -1,5 +1,10 @@
+
+
 $(document).ready(function() {
-	
+	$(".chosen-select").chosen({
+		width: "100%",
+		rtl: true
+	});	
 	var closeSidebar = $(".close-sidebar");
 	closeSidebar.on("click", function () {
 		var hidden;
@@ -76,12 +81,95 @@ $(document).ready(function() {
 	});
 	$(".enable-disable-btn").on("click", function () {
 		var dataEnable = $(this).parent(".form-group").find(".enable-disabled-inputs");
+		var selectBox = $(this).parent(".form-group").find(".enable-disabled-inputs select");
+		var chosenContainer = $(this).parent(".form-group").find(".chosen-container");
 		if ($(this).is(":checked")) {
 			$(dataEnable).removeAttr('disabled').attr("enabled", "");
+			if ($(dataEnable).find("select").attr("multiple") !== undefined) {
+				selectBox.addClass('chosen-select');
+			selectBox.fadeOut();
+			chosenContainer.fadeIn();
+				$(".chosen-select").chosen({
+					width: "100%",
+					rtl: true
+				});	
+			}
+			
 		} else {
 			$(dataEnable).removeAttr('enabled').attr("disabled", "");
+			chosenContainer.fadeOut();
+			selectBox.removeClass('chosen-select');
+			selectBox.fadeIn();
+
 		}
 	});
+	//function to add and remove auto replay
+	function addRemoveAutoReplay() {
+		$(".add-auto-replay").on("click", function () {
+		var mainContainer = $(this).parents(".container-enter-user-options");
+		var content = `
+				<div class="container-auto-replay col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <p class="btn btn-danger remove-auto-replay fa fa-times"></p>
+                                                </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <input class="form-control" placeholder="النص" type="text" name="resmain{{res['id']}}">
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <textarea class="form-control" name="reses{{res['id']}}"></textarea>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="">
+                                                            <label>حذف رد الشخص</label>
+                                                            <input type="checkbox" name="resdelete{{res['id']}}">
+                                                        </div>
+                                                        <div class="">
+                                                            <label>للأدمن فقط</label>
+                                                            <input type="checkbox" name="resdelete{{res['id']}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+			`
+			mainContainer.append(content);
+			$(".remove-auto-replay").on("click", function () {
+			$(this).parents(".container-auto-replay").remove();
+		});
+	});
+		$(".remove-auto-replay").on("click", function () {
+			$(this).parents(".container-auto-replay").remove();
+		});
+	}
+	addRemoveAutoReplay();
+	//function for add and remove shorten edibility
+
+	function addRemoveShort() {
+		$(".add-short-edibility").on("click", function () {
+			var mainContainer = $(this).parents(".container-add-edibility-short");
+			var content = `
+				<div class="container-short-edibility col-lg-4 col-sm-6 col-xs-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <p class="btn btn-danger remove-short-edibility fa fa-times"></p>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-control" type="text" name="shourtrole{{ff['id']}}">
+                                                                <select class="form-control" name="idrole{{ff['id']}}">
+                                                                    <option>خيار 1</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+			`
+			mainContainer.append(content);
+			$(".remove-short-edibility").on("click", function () {
+				$(this).parents(".container-short-edibility").remove();
+			});
+		});
+		$(".remove-short-edibility").on("click", function () {
+			$(this).parents(".container-short-edibility").remove();
+		});
+	}
+	addRemoveShort();
 });
 
 

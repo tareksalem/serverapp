@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-rtl/3.4.0/css/bootstrap-flipped.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.min.css">
     <link rel="stylesheet" href="/css/profile.css"/>
     <link rel="stylesheet" href="/css/manage.css"/>
     <link href="https://fonts.googleapis.com/css?family=El+Messiri" rel="stylesheet">
@@ -607,7 +608,7 @@
                                                     <h4 class="opened-options">الصلاحيات المخول لها</h4>
                                                     <fieldset class="enable-disabled-inputs" disabled>
                                                         <div class="form-group">
-                                                            <select class="form-control" name="kickcmd" multiple>
+                                                            <select data-placeholder="choose" class="form-control" name="kickcmd" multiple>
                                                             <option>{{role.name}}</option>
                                                         </select>
                                                         </div>
@@ -626,7 +627,7 @@
                                                     <h4 class="opened-options">الصلاحيات المخول لها</h4>
                                                     <fieldset class="enable-disabled-inputs" disabled>
                                                         <div class="form-group">
-                                                            <select class="form-control" name="bancmd" multiple>
+                                                            <select data-placeholder="choose" class="form-control" name="bancmd" multiple>
                                                             <option>{{role.name}}</option>
                                                         </select>
                                                         </div>
@@ -643,9 +644,9 @@
                                                     <label>تفعيل أمر البرودكاست لصلاحيه</label>
                                                     <input class="enable-disable-btn" type="checkbox" name="bccmdactv">
                                                     <h4 class="opened-options">الصلاحيات المخول لها</h4>
-                                                    <fieldset class="enable-disabled-inputs" disabled>
+                                                    <fieldset class="enable-disabled-inputs"disabled>
                                                         <div class="form-group">
-                                                            <select class="form-control" name="bccmd" multiple>
+                                                            <select data-placeholder="choose" class="form-control" name="bccmd" multiple>
                                                             <option>{{role.name}}</option>
                                                         </select>
                                                         </div>
@@ -666,9 +667,497 @@
                     </div>
                     <!--end container of orders-->
                     <!--container of auto reply-->
-
-                    
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>الردود الأليه</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                 <div class="col-lg-5 col-sm-5 col-xs-10">
+                                                    <p class="btn btn-primary add-auto-replay">إضافة رد</p>
+                                                </div>
+                                            </div>
+                                            <div class="container-auto-replay col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                <div class="form-group">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <p class="btn btn-danger remove-auto-replay fa fa-times"></p>
+                                                </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <input class="form-control" placeholder="النص" type="text" name="resmain{{res['id']}}">
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <textarea class="form-control" name="reses{{res['id']}}"></textarea>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="">
+                                                            <label>حذف رد الشخص</label>
+                                                            <input type="checkbox" name="resdelete{{res['id']}}">
+                                                        </div>
+                                                        <div class="">
+                                                            <label>للأدمن فقط</label>
+                                                            <input type="checkbox" name="resdelete{{res['id']}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     <!--end container of auto reply-->
+                    <!--container of special rooms-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>نظام الرومات المخصصه</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل رومات الصور</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="alloedpicch">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <h4>شاتات مخصصه للصور</h4>
+                                                                <div class="form-group">
+                                                            <select class="form-control" name="channelsforpi" multiple="">
+                                                                <option>خيار 1</option>
+                                                            </select>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container of special rooms-->
+                    <!--container of records systems-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>نظام السجلات</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5  col-md-5 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>شات السجلات الرئيسي</label>
+                                                    <select name="channel" class="form-control">
+                                                        <option>channel name</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-3  col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>دخول عضو جديد</label>
+                                                    <input type="checkbox" name="newmemberjoin">
+                                                    <select class="form-control" name="joinchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>الباند</label>
+                                                    <input type="checkbox" name="banlog">
+                                                    <select class="form-control" name="banchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>الطرد او المغادره</label>
+                                                    <input type="checkbox" name="outkick">
+                                                    <select class="form-control" name="outkickchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>فتح الباند</label>
+                                                    <input type="checkbox" name="unbanlog">
+                                                    <select class="form-control" name="unbanchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>اضافه صلاحيه للعضو</label>
+                                                    <input type="checkbox" name="memrole">
+                                                    <select class="form-control" name="memrolelog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>السماعه والأسكات</label>
+                                                    <input type="checkbox" name="mutdeflog">
+                                                    <select class="form-control" name="mutdefchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>الميوت الكتابي</label>
+                                                    <input type="checkbox" name="muttextlog">
+                                                    <select class="form-control" name="muttextchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>أنشاء صلاحيه</label>
+                                                    <input type="checkbox" name="rolecrt">
+                                                    <select class="form-control" name="rolecrtchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>التعديل على صلاحيه</label>
+                                                    <input type="checkbox" name="roleedit">
+                                                    <select class="form-control" name="roleeditchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>مسح صلاحيه</label>
+                                                    <input type="checkbox" name="roledel">
+                                                    <select class="form-control" name="roledelchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>انشاء شات</label>
+                                                    <input type="checkbox" name="chcreate">
+                                                    <select class="form-control" name="chcreatechlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>مسح شات</label>
+                                                    <input type="checkbox" name="chdelete">
+                                                    <select class="form-control" name="chdeletechlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>مسح الكلام</label>
+                                                    <input type="checkbox" name="texteditdelete">
+                                                    <select class="form-control" name="mesdeleditchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تعديل الكلام</label>
+                                                    <input type="checkbox" name="mesedit">
+                                                    <select class="form-control" name="meseditchlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>تنظيف الشات</label>
+                                                    <input type="checkbox" name="textclear">
+                                                    <select class="form-control" name="chlogclear">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <label>التنقل بين الرومات</label>
+                                                    <input type="checkbox" name="changevoice">
+                                                    <select class="form-control" name="changevoicechlog">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-10">
+                                                <div class="form-group">
+                                                    <h4>الصلاحيات المطلوبة</h4>
+                                                    <p class="alert-alert">[ *View Audit log ] </p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container of records systems-->
+                    <!--container of givig ediblitity-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>أمر اعطاء الصلاحيه</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل امر اعطاء الصلاحية</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="giveroleactv">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <h4>الصلاحيات المخول لها</h4>
+                                                                <div class="form-group">
+                                                                    <select class="form-control" name="rolegiven" multiple="">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                    <p class="alert-alert">يتطلب صلاحية</p>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group container-multi-select">
+                                                        <label>الرولات المسموح بأعطائها</label>
+                                                    <select data-placeholder="اختار" name="allowdroles" class="form-control chosen-select" multiple="">
+                                                        <option>خيار 1</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="container-add-edibility-short col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <p class="btn btn-primary add-short-edibility">إضافة اختصار لصلاحية</p>
+                                                    </div>
+                                                    <div class="container-short-edibility col-lg-4 col-sm-6 col-xs-12 col-xs-12">
+                                                        <div class="form-group">
+                                                            <p class="btn btn-danger remove-short-edibility fa fa-times"></p>
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <input class="form-control" type="text" name="shourtrole{{ff['id']}}">
+                                                                <select class="form-control" name="idrole{{ff['id']}}">
+                                                                    <option>خيار 1</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end container of givig ediblitity-->
+                    <!--container of security system-->
+                    <div class="panel-container">
+                        <div class="panel-heading">
+                            <h3>نظام الحماية</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <form method="post" id="colors-system">
+                                    <div class="row">
+                                        <div class="container-enter-user-options col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل مضاد الروابط</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="antiinviteactv">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <h4>تعطيل المضاد من</h4>
+                                                                <div class="form-group">
+                                                                    <select class="form-control" name="allowdinvitechannels" multiple="">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                    <p class="alert-alert">يتطلب صلاحية</p>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>حماية الميوت الصوتي</label>
+                                                        <input type="checkbox" name="mutedvoice">
+                                                        <p class="alert-alert">يتطلب صلاحية</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-5 col-md-5 col-sm-6 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>حماية الميوت الكتابي</label>
+                                                        <input type="checkbox" name="mutedtext">
+                                                        <p class="alert-alert">يتطلب صلاحية</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل مضاد سبام الرسايل</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="enable-disable-box7">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <div class="form-group">
+                                                                    <label>اقصى عدد للرسايل</label>
+                                                                    <input class="form-control" type="text" name="maxmsgs">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>خلال</label>
+                                                                    <select name="msgtimer" class="form-control">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>سيتم إعطائهم</label>
+                                                                    <select name="msgtspamtype" class=" form-control">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                    <p class="alert-alert">يتطلب صلاحية</p>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل مضاد سبام الدخول</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="enable-disable-box6">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <div class="form-group">
+                                                                    <label>اقصى عدد للدخول</label>
+                                                                    <input class="form-control" type="text" name="maxjoins">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>خلال</label>
+                                                                    <select name="jointimer" class=" form-control">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                    <p class="alert-alert">يتطلب صلاحية</p>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>تفعيل مضاد الجحفله</label>
+                                                        <input class="enable-disable-btn" type="checkbox" name="enable-disable-box5">
+                                                        <div class="enable-disabled-inputs col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <fieldset class="enable-disabled-inputs" disabled>
+                                                                <div class="form-group">
+                                                                    <label>اقصى عدد للباند</label>
+                                                                    <input class="form-control" type="text" name="maxban">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label>خلال</label>
+                                                                    <select name="bantimer" class=" form-control">
+                                                                        <option>خيار 1</option>
+                                                                    </select>
+                                                                    <p class="alert-alert">يتطلب صلاحية</p>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>رساله المغادره</label>
+                                                        <textarea class="form-control" name="outmsg"></textarea>
+                                                        <select class="form-control" name="outmsgch">
+                                                            <option>تعطيل هذه الخاصية</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>رساله الطرد</label>
+                                                        <textarea class="form-control" name="kickmsg"></textarea>
+                                                        <select class="form-control" name="kickmsgch">
+                                                            <option>تعطيل هذه الخاصية</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-4 col-sm-10 col-xs-10">
+                                                    <div class="form-group">
+                                                        <label>رساله الباند</label>
+                                                        <textarea class="form-control" name="banmsg"></textarea>
+                                                        <select class="form-control" name="banmsgch">
+                                                            <option>تعطيل هذه الخاصية</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="col-lg-5 col-md-5 col-sm-10">
+                                                <input type="submit" class="btn btn-primary" value="حفظ التغييرات">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--end container of security system-->
                 </div>
             </div>
         <div>    
@@ -683,6 +1172,7 @@
     <!-- Latest compiled and minified JavaScript -->
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/chosen/1.8.2/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="/js/manage.js"></script>
 </body>
 </html>
