@@ -68,3 +68,9 @@ var Handle = new SampleJs();
 Handle.get("/manage", function (req, res) {
     res.render("pages", "manage.html", "hello");
 });
+Handle.get("/", function (req, res) {
+    res.render("pages", "home.html", "hello");
+});
+Handle.get("/profile", function (req, res) {
+    res.render("pages", "profile.html", "hello");
+});
